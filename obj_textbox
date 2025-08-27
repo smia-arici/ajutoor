@@ -1,0 +1,70 @@
+//draw event
+//Draw textbox
+draw_sprite(casuta_text, 0, x, y);
+draw_text_ext(x, y, text, stringHeight, boxWidth);
+text = "Ba Riciule sa vezi faza azi cand am mers la vecina sa fur alunele astea pentru tine...";
+
+/*/Failed experiments
+if (is_array(text_to_display) and array_length(text) > 0) {
+    // Get the current line of text from the array.
+    var current_text = text_to_display[page];
+
+    // Get the width of the textbox sprite to define the drawing area for the text.
+    var boxWidth = sprite_get_width(casuta_text);
+
+    // Draw the textbox sprite.
+    draw_sprite(casuta_text, 0, x, y);
+
+    // Draw the text inside the textbox.
+    // The string_height function correctly calculates the height for text wrapping.
+    draw_text_ext(x, y, current_text, string_height(current_text), boxWidth);
+}
+//draw_sprite(casuta_text, 0, x, y);
+// Draw the correct line of text using the 'page' variable.
+draw_text_ext(x, y, text_to_display[page], string_height(text_to_display[page]), boxWidth);
+// In obj_textbox Draw Event
+// First, draw the background sprite.
+draw_sprite(casuta_text, 0, x, y);
+
+// Get the correct line of text from the array.
+var current_text = text_to_display[page];
+
+// Calculate string height just before drawing the text.
+var stringHeight = string_height(current_text);
+
+// Now, draw the text with the calculated height.
+draw_text_ext(x, y, current_text, stringHeight, boxWidth);
+
+//step event
+if (keyboard_check_pressed(vk_space)){
+	if page+1 < (array_length_id(text))  {
+	page +=1 ;
+}
+}
+
+//create event
+text = "Ba vlad sa vezi faza azi cand am mers la vecina sa fur alunele astea pentru tine...";
+
+
+// This tracks the current page (line) of dialogue.
+page = 0
+
+boxWidth =sprite_get_width(casuta_text);
+stringHeight = string_height(text);
+
+//pozitia casutei text
+ half_view = (camera_get_view_height(view_camera[0]) )
+
+if (instance_exists(Object1)) {
+
+if (Object1.y > half_view) {
+
+y = 660
+
+} else {
+x = 500
+y = 600
+
+}
+
+}
