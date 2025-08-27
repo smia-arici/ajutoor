@@ -1,45 +1,30 @@
-{
-  "$GMObject":"",
-  "%Name":"Object1",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":87,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
-  "managed":true,
-  "name":"Object1",
-  "overriddenProperties":[],
-  "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
-  },
-  "parentObjectId":null,
-  "persistent":true,
-  "physicsAngularDamping":0.1,
-  "physicsDensity":0.5,
-  "physicsFriction":0.2,
-  "physicsGroup":1,
-  "physicsKinematic":false,
-  "physicsLinearDamping":0.1,
-  "physicsObject":false,
-  "physicsRestitution":0.1,
-  "physicsSensor":false,
-  "physicsShape":1,
-  "physicsShapePoints":[
-    {"x":0.0,"y":0.0,},
-    {"x":16.0,"y":0.0,},
-    {"x":16.0,"y":20.0,},
-    {"x":0.0,"y":20.0,},
-  ],
-  "physicsStartAwake":true,
-  "properties":[],
-  "resourceType":"GMObject",
-  "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":{
-    "name":"riciu",
-    "path":"sprites/riciu/riciu.yy",
-  },
-  "spriteMaskId":null,
-  "visible":true,
+//step 
+
+var _right = keyboard_check(vk_right) or keyboard_check(ord("D"));
+var _left = keyboard_check(vk_left) or keyboard_check(ord("A"));
+var _up = keyboard_check(vk_up) or keyboard_check(ord("S"));
+var _down = keyboard_check(vk_down) or keyboard_check(ord("W"));
+
+var _xinput = _right - _left;
+var _yinput =_down - _up;
+
+move_and_collide(_xinput * my_speed, _yinput * my_speed, Object1);
+
+if ( keyboard_check(vk_left) or keyboard_check(ord("A")))
+{image_xscale = -10;
 }
+if ( keyboard_check(vk_right) or keyboard_check(ord("D")))
+{image_xscale = 10;
+}
+
+//pentru textbox click da nu ai merge
+
+if(mouse_check_button_pressed(mb_left)) {
+	instance_create_layer(mouse_x, mouse_y, "text", Obj_textbox);
+}
+//sa vad daca se ating 
+if (place_meeting(x, y, berberita_obj)) {
+   show_debug_message("ma atinge!");
+		
+}
+my_speed = 6;
