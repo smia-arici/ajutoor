@@ -1,43 +1,22 @@
-{
-  "$GMObject":"",
-  "%Name":"berberita_obj",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
-  "managed":true,
-  "name":"berberita_obj",
-  "overriddenProperties":[],
-  "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
-  },
-  "parentObjectId":null,
-  "persistent":false,
-  "physicsAngularDamping":0.1,
-  "physicsDensity":0.5,
-  "physicsFriction":0.2,
-  "physicsGroup":1,
-  "physicsKinematic":false,
-  "physicsLinearDamping":0.1,
-  "physicsObject":false,
-  "physicsRestitution":0.1,
-  "physicsSensor":false,
-  "physicsShape":1,
-  "physicsShapePoints":[
-    {"x":0.0,"y":0.0,},
-    {"x":116.0,"y":0.0,},
-    {"x":116.0,"y":88.0,},
-    {"x":0.0,"y":88.0,},
-  ],
-  "physicsStartAwake":true,
-  "properties":[],
-  "resourceType":"GMObject",
-  "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":{
-    "name":"berberita",
-    "path":"sprites/berberita/berberita.yy",
-  },
-  "spriteMaskId":null,
-  "visible":true,
-}
+//create event
+my_textbox = noone;
+my_text[0] = "Ba vlade, cumetre, acum te-ai trezit?"
+my_text[1] = "Ba da prost dispus mai esti..."
+
+
+//step event
+	// Check for a collision with the player object.
+if (place_meeting(x, y, Object1)) {
+    // If a textbox doesn't exist yet, create one.
+	if (keyboard_check(vk_space)) {
+    if (my_textbox == noone) {
+        my_textbox = instance_create_layer(x, y, "text", Obj_textbox);
+        // Pass the dialogue array from THIS character to the newly created textbox.
+    my_textbox.text = my_text;
+    }}
+} else {
+    // If the player moves away, destroy the textbox.
+    if (my_textbox != noone) {
+        instance_destroy(my_textbox);
+		my_textbox = noone;
+    }}
