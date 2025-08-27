@@ -1,0 +1,8 @@
+//in relatie cu object1
+room_goto(targetRoom);
+Object1.X = targetX;
+Object1.Y = targetY;
+//trebuie sa intre doar din fataa(?)
+
+// create event
+var targetRoom, targetX, targetY; 
